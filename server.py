@@ -16,11 +16,11 @@ from datetime import datetime, timezone
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-if not os.environ.get('MONGO_URL') or not os.environ.get('DB_NAME'):
+if not os.environ.get('MONGO_URL') or not os.environ.get('DB_NAME') or not os.environ.get('JWT_SECRET'):
     raise SystemExit(
         "\n[Aurevia Gems] Missing configuration: backend/.env not found or incomplete.\n"
         "  1. Copy backend/.env.example to backend/.env\n"
-        "  2. Set MONGO_URL (e.g. mongodb://localhost:27017) and DB_NAME\n"
+        "  2. Set MONGO_URL (e.g. mongodb://localhost:27017), DB_NAME and JWT_SECRET\n"
         "  See README.md → 'Run locally'.\n"
     )
 
